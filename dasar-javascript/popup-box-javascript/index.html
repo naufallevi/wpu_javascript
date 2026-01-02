@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alert | Prompt | Confirm</title>
+  </head>
+  <body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    <script>
+      alert("Welcome to our website!");
+      var x = true;
+
+      while (x) {
+        var name = prompt("Please enter your name:", "Your Name Here");
+        alert("Welcome " + name);
+        x = confirm("Do you want to continue?");
+      }
+
+      alert("Thank you for visiting our website!");
+    </script>
+  </body>
+</html>
