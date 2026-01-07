@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suwit Jawa</title>
+  </head>
+  <body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    <script>
+      var pertanyaan = true;
+      while (pertanyaan) {
+        // player input
+        var player = prompt("Pilih suwitmu: gajah, semut, dan orang");
+
+        // bot input
+        var bot = Math.random();
+        if (bot < 0.34) {
+          bot = "gajah";
+        } else if (bot >= 0.34 && bot < 0.67) {
+          bot = "orang";
+        } else {
+          bot = "semut";
+        }
+
+        // eksekusi
+        var hasil = "";
+        if (player == bot) {
+          hasil = "Seri";
+        } else if (player == "gajah") {
+          hasil = bot == "orang" ? "Menang" : "Kalah";
+        } else if (player == "orang") {
+          hasil = bot == "gajah" ? "Kalah" : "Menang";
+        } else if (player == "semut") {
+          hasil = bot == "gajah" ? "Menang" : "Kalah";
+        } else {
+          hasil = "Pilih diantara (gajah, semut, dan orang)";
+        }
+
+        alert("Pilihan anda : " + player + "\nPilihan bot : " + bot + "\nHasilnya adalah : " + hasil);
+
+        pertanyaan = confirm("Tetap bermain?");
+      }
+    </script>
+  </body>
+</html>

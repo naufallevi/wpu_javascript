@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tebak Angka</title>
+  </head>
+  <body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    <script>
+      var pertanyaan = true;
+      while (pertanyaan) {
+        var bot = Math.ceil(Math.random() * 10);
+
+        for (var chance = 3; chance >= 1; chance--) {
+          var p = prompt("Sisa kesempatan : " + chance + "\nMasukkan angka 1-10 :");
+          if (p <= 10) {
+            p = p;
+          } else if (p == 0) {
+            p = "bukan angka 1-10";
+          } else {
+            p = "bukan angka 1-10";
+          }
+
+          var hasil = "";
+          if (p == bot) {
+            hasil = "Menang";
+          } else if (p < bot) {
+            hasil = "Terlalu rendah";
+          } else if (p > bot) {
+            hasil = "Terlalu tinggi";
+          } else {
+            hasil = "Belum tepat";
+          }
+
+          if (hasil == "Menang") {
+            alert("Anda berhasil menebak angka " + bot);
+            chance = 0;
+          } else {
+            if (chance > 1) {
+              alert("Silahkan mencoba angka baru. Angka saat ini " + hasil);
+            } else {
+              alert("Kesempatan Habis XD\nJawabannya adalah " + bot);
+            }
+          }
+        }
+
+        pertanyaan = confirm("Apakah ingin mengulangi?");
+      }
+    </script>
+  </body>
+</html>
