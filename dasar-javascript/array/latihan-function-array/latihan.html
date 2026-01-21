@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Function dan Array</title>
+  </head>
+  <body>
+    <script>
+      var penumpang = [];
+      var tambahPenumpang = function (namaPenumpang, penumpang) {
+        if (penumpang.length == 0) {
+          console.log("1.1");
+          penumpang.unshift(namaPenumpang);
+          return penumpang;
+        } else {
+          var jmlPenumpang = penumpang.length;
+          for (var i = 0; i < jmlPenumpang; i++) {
+            if (penumpang[i] == namaPenumpang) {
+              console.log("2.2");
+              console.log("Nama " + namaPenumpang + " sudah ada di index ke-" + i);
+              return penumpang;
+            }
+          }
+          for (var i = 0; i < jmlPenumpang; i++) {
+            if (penumpang[i] == undefined) {
+              console.log("2.1");
+              penumpang[i] = namaPenumpang;
+              return penumpang;
+            } else if (i == jmlPenumpang - 1) {
+              console.log("2.3");
+              penumpang.push(namaPenumpang);
+              return penumpang;
+            }
+          }
+        }
+      };
+
+      var hapusPenumpang = function (namaPenumpang, penumpang) {
+        if (penumpang.length == 0) {
+          console.log("Angkot kosong");
+          return penumpang;
+        } else {
+          var jmlPenumpang = penumpang.length;
+          for (var i = 0; i < jmlPenumpang; i++) {
+            if (penumpang[i] == namaPenumpang) {
+              console.log("Menghapus penumpang bernama " + penumpang[i]);
+              penumpang[i] = undefined;
+              return penumpang;
+            } else if (i == jmlPenumpang - 1) {
+              console.log("Tidak ada nama tersebut");
+              return penumpang;
+            }
+          }
+        }
+      };
+
+      console.log(penumpang.join(" - "));
+    </script>
+  </body>
+</html>

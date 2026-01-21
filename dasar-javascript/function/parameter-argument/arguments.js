@@ -3,6 +3,7 @@ function addition() {
 
   for (var i = 0; i < arguments.length; i++) {
     sum += arguments[i];
+    console.log("Menambahkan " + arguments[i] + ", total sekarang: " + sum);
   }
   
   return sum;
