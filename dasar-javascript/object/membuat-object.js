@@ -31,11 +31,11 @@ console.log(lando1);
 
 console.log("==============================");
 // Object Constructor
-function createFootballPlayer(name, club, position) {
+function CreateFootballPlayer(name, club, position) {
   this.name = name;
   this.club = club;
   this.position = position;
 }
 
-var player1 = new createFootballPlayer("Virgil van Dijk", "Liverpool FC", "Defender");
+var player1 = new CreateFootballPlayer("Virgil van Dijk", "Liverpool FC", "Defender");
 console.log(player1);

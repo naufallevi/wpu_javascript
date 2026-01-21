@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+  </head>
+  <body>
+    <script>
+      // Object Function Declaration
+      function helloWorld() {
+        console.log(this);
+        console.log("Hello World!");
+      }
+      this.helloWorld();
+      // this mengembalikan OBJECT global
+
+      console.log("==============================");
+
+      // Object Literal
+      var obj = { name: "qwerty", no: 123456 };
+      obj.lorem = function () {
+        console.log(this);
+        console.log("Lorem ipsum dolor sit amet");
+      };
+      obj.lorem();
+      // this mengembalikan OBJECT yang bersangkutan
+
+      console.log("==============================");
+
+      // Object Constructor
+      function LoremIpsum() {
+        console.log(this);
+        this.nama = "Lorem";
+        console.log("Lorem ipsum dolor sit amet.");
+      }
+
+      new LoremIpsum();
+      var obj1 = new LoremIpsum();
+      var obj2 = new LoremIpsum();
+      // this mengembalikan OBJECT yang baru dibuat
+    </script>
+  </body>
+</html>
