@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Object</title>
+  </head>
+  <body>
+    <script>
+      function Angkot(supir, trayek, harga, penumpang, kas) {
+        this.supir = supir;
+        this.trayek = trayek;
+        this.harga = harga;
+        this.penumpang = penumpang;
+        this.kas = kas;
+
+        this.tambahPenumpang = function (namaPenumpang) {
+          if (this.penumpang.length == 0) {
+            this.penumpang.unshift(namaPenumpang);
+            console.log(namaPenumpang + " naik");
+            return this.penumpang;
+          } else {
+            for (i = 0; i < this.penumpang.length; i++) {
+              if (namaPenumpang == this.penumpang[i]) {
+                console.log("Penumpang sudah naik!");
+                return this.penumpang;
+              }
+            }
+
+            for (i = 0; i < this.penumpang.length; i++) {
+              if (this.penumpang[i] == undefined) {
+                this.penumpang[i] = namaPenumpang;
+                console.log(namaPenumpang + " naik dikursi kosong");
+                return this.penumpang;
+              } else if (i == this.penumpang.length - 1) {
+                this.penumpang.push(namaPenumpang);
+                console.log(namaPenumpang + " naik dikursi terakhir");
+                return this.penumpang;
+              }
+            }
+          }
+        };
+
+        this.hapusPenumpang = function (namaPenumpang, jarak, bayar) {
+          if (this.penumpang == 0) {
+            console.log("Angkot masih kosong!");
+            return this.penumpang;
+          } else {
+            if (typeof jarak === "number" && jarak <= 100 && jarak > 1) {
+              this.harga = (jarak / 100) * this.harga;
+            } else {
+              console.log("Jarak tidak valid");
+              return this.penumpang;
+            }
+
+            for (i = 0; i < this.penumpang.length; i++) {
+              if (this.penumpang[i] == namaPenumpang) {
+                if (bayar < this.harga) {
+                  console.log("Bayar dulu sesuai harga cuy!!!");
+                  console.log("Harga: " + this.harga);
+                  return this.penumpang;
+                } else if (bayar > this.harga) {
+                  total = bayar - this.harga;
+                  this.kas += this.harga;
+                  console.log("Harga: " + this.harga);
+                  console.log("Kembalian " + total + " dari " + bayar);
+                }
+                this.penumpang[i] = undefined;
+                console.log(namaPenumpang + " sudah turun dan kas menjadi " + this.kas);
+                return this.penumpang;
+              } else if (i == this.penumpang.length - 1) {
+                console.log("Tidak ada nama tersebut dalam angkot");
+                return this.penumpang;
+              }
+            }
+          }
+        };
+      }
+
+      angkotA = new Angkot("John Doe", ["Kajen", "Kesesi"], 15000, [], 0);
+      angkotB = new Angkot("John Wick", ["Kajen", "Bojong"], 10000, [], 0);
+    </script>
+  </body>
+</html>
